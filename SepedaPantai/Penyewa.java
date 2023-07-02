@@ -1,7 +1,8 @@
 package SepedaPantai;
 import java.util.ArrayList;
 
-abstract class Penyewa {
+// Abstraction
+abstract class Penyewa{
   private String id;
   private String nama;
   public ArrayList<Sepeda> pinjamSepedas = new ArrayList<Sepeda>();
@@ -18,10 +19,10 @@ abstract class Penyewa {
     public void setNama(String nama){
         this.nama = nama;
     }
-   public void terimaSepeda(Sepeda sepeda) {
+  public void terimaSepeda(Sepeda sepeda){
     this.pinjamSepedas.add(sepeda);
   }
-    public void hapusPenyewa(Sepeda sepeda) {
+  public void bawaSepeda(Sepeda sepeda){
     this.pinjamSepedas.remove(sepeda);
   }
 }

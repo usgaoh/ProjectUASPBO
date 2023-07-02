@@ -5,28 +5,28 @@ class Main{
 
   static Scanner scan = new Scanner(System.in);
   static Rental rental = new Rental();
-
-  public static void main(String[] args) {
+  
+  public static void main(String[] args){
     initRental();
-
+    
     String isContinue = "y";
 
-    while (isContinue.equals("y")) {
+    while (isContinue.equals("y")){
       showMenu();
       int selectedMenu = pilihMenu();
-      if (selectedMenu == 1) {
+      if (selectedMenu == 1){
         listSepeda();
-      } else if (selectedMenu == 2) {
+      } else if (selectedMenu == 2){
         listPenyewa();
-      } else if (selectedMenu == 3) {
+      } else if (selectedMenu == 3){
         tambahPenyewa();
-      } else if (selectedMenu == 4) {
+      } else if (selectedMenu == 4){
+        hapusPenyewa();
+      } else if (selectedMenu == 5){
         pinjamSepeda();
-      } else if (selectedMenu == 5) {
+      } else if (selectedMenu == 6){
         kembalikanSepeda();
-      } else if (selectedMenu == 6) {
-        // hapusPenyewa();
-      } else {
+      } else{
         System.out.println("Inputan yang anda masukan salah!");
       }
       System.out.print("Lanjut? ");
@@ -34,38 +34,29 @@ class Main{
     }
   }
 
-  public static void showMenu() {
-    System.out.println(" ================================");
-    System.out.println("|          Menu Rental           |");
-    System.out.println("|================================|");
+  public static void showMenu(){
+    System.out.println(" ==========Menu Rental=========== ");
+    System.out.println("|                                |");
     System.out.println("|       1. List Sepeda           |");
     System.out.println("|       2. List Penyewa          |");
     System.out.println("|       3. Tambah Penyewa        |");
-    System.out.println("|       4. Pinjam Sepeda         |");
-    System.out.println("|       5. Kembalikan Sepeda     |");
-    System.out.println("|       6. Hapus Penyewa         |");
+    System.out.println("|       4. Hapus Penyewa         |");
+    System.out.println("|       5. Pinjam Sepeda         |");
+    System.out.println("|       6. Kembalikan Sepeda     |");
     System.out.println(" ================================");
   }
 
   public static void initRental(){
-    Sepeda sepeda1 = new Sepeda();
-    sepeda1.setId("1.");
-    sepeda1.setNama(" Sepeda Keranjang");
-
-    Sepeda sepeda2 = new Sepeda();
-    sepeda2.setId("2.");
-    sepeda2.setNama(" Sepeda Listrik");
-
-    Sepeda sepeda3 = new Sepeda();
-    sepeda3.setId("3.");
-    sepeda3.setNama(" Sepeda Lipat");
-
+    Sepeda sepeda1= new Sepeda("1", ". Sepeda Keranjang");
+    Sepeda sepeda2= new Sepeda("2", ". Sepeda Lipat");
+    Sepeda sepeda3= new Sepeda("3", ". Sepeda Listrik");
+    
     rental.sepedas.add(sepeda1);
     rental.sepedas.add(sepeda2);
     rental.sepedas.add(sepeda3);
   }
 
-  public static int pilihMenu() {
+  public static int pilihMenu(){
 		System.out.print("pilih menu : ");
 		int pilihan = scan.nextInt();
 		scan.nextLine();
@@ -85,6 +76,7 @@ class Main{
 
     rental.tambahPenyewa(penyewa);
   }
+ 
   public static void listPenyewa(){
     for(Penyewa penyewa : rental.penyewas){
       System.out.println(penyewa.getId()+". "+penyewa.getNama());
@@ -93,7 +85,7 @@ class Main{
 
   public static void listSepeda(){
     for(Sepeda sepeda : rental.sepedas){
-      System.out.println(""+sepeda.getId()+""+sepeda.getNama());
+      System.out.println(sepeda.getId()+""+sepeda.getNama());
     }
   }
 
@@ -106,7 +98,8 @@ class Main{
     
     rental.bawaSepeda(penyewaId, sepedaId);
   }
-  public static void kembalikanSepeda() {
+
+  public static void kembalikanSepeda(){
     System.out.print("id penyewa : ");
     String penyewaId = scan.next();
 
@@ -115,10 +108,11 @@ class Main{
 
     rental.terimaSepeda(penyewaId, sepedaId);
   }
-  public void hapusPenyewa(){
-    System.out.println("hapus penyewa");
-    int penyewaId = scan.nextInt();
-    
-    Penyewa.remove(penyewaId-1);
+
+  public static void hapusPenyewa(){
+    System.out.println("Id penyewa yang ingin dihapus: ");
+    int id = scan.nextInt();
+
+    rental.penyewas.remove(id-1);
   }
 }

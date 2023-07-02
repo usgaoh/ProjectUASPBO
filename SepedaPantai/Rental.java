@@ -1,11 +1,10 @@
 package SepedaPantai;
 import java.util.ArrayList;
 
+// Inheritance
 public class Rental extends Penyewa{
 public ArrayList<Sepeda> sepedas = new ArrayList<Sepeda>();
 public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
-
-  public String id;
 
   public void tambahPenyewa (Penyewa penyewa){
     if (!isPenyewaIdExist(penyewa.getId())){
@@ -26,15 +25,6 @@ public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
     return isExist;
   }
 
-  public void tambahSepeda (Sepeda sepeda){
-    if (!isSepedaIdExist(sepeda.getId())){
-        this.sepedas.add(sepeda);
-        System.out.println("Berhasil menambahkan");
-    } else {
-      System.out.println("Id : "+sepeda.getId()+" Sudah ada!");
-    }
-  }
-
   public Boolean isSepedaIdExist(String id){
     Boolean isExist = false;
     for (Sepeda sepeda : this.sepedas){
@@ -45,6 +35,7 @@ public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
     return isExist;
   }
 
+  // Unsur Polymorphism pada Method bawaSepeda
   public void bawaSepeda(String penyewaId, String sepedaId){
     Sepeda sepeda = this.getSepedaById(sepedaId, sepedas);
     this.sepedas.remove(sepeda);
@@ -54,34 +45,33 @@ public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
     this.penyewas.get(penyewaIndex).terimaSepeda(sepeda);
   }
 
-  private int getPenyewaIndex(Penyewa penyewa) {
+  private int getPenyewaIndex(Penyewa penyewa){
     return this.penyewas.indexOf(penyewa);
   }
 
-  private Penyewa getPenyewaById(String id) {
-    for (Penyewa penyewa : this.penyewas) {
-      if (penyewa.getId().equals(id)) {
+  Penyewa getPenyewaById(String id){
+    for (Penyewa penyewa : this.penyewas){
+      if (penyewa.getId().equals(id)){
         return penyewa;
       }
     }
     return null;
   }
 
-  private Sepeda getSepedaById(String id, ArrayList<Sepeda> List) {
-    for (Sepeda sepeda : List) {
-      if (sepeda.getId().equals(id)) {
+  private Sepeda getSepedaById(String id, ArrayList<Sepeda> List){
+    for (Sepeda sepeda : List){
+      if (sepeda.getId().equals(id)){
         return sepeda;
       }
     }
     return null;
-}
+  }
   public void terimaSepeda(String penyewaId, String sepedaId) {
     Penyewa penyewa = this.getPenyewaById(penyewaId);
     int penyewaIndex = this.getPenyewaIndex(penyewa);
     
     Sepeda sepeda = this.getSepedaById(sepedaId, penyewa.pinjamSepedas);
     this.sepedas.add(sepeda);
-    this.penyewas.get(penyewaIndex).terimaSepeda(sepeda);
+    this.penyewas.get(penyewaIndex).bawaSepeda(sepeda);
   }
-
 }
