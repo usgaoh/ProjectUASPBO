@@ -1,7 +1,7 @@
 package SepedaPantai;
 import java.util.ArrayList;
 
-// Inheritance
+// Inheritance & ada bagian yang terdapat Polymorphism
 public class Rental extends Penyewa{
 public ArrayList<Sepeda> sepedas = new ArrayList<Sepeda>();
 public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
@@ -34,8 +34,7 @@ public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
     }
     return isExist;
   }
-
-  // Unsur Polymorphism pada Method bawaSepeda
+  
   public void bawaSepeda(String penyewaId, String sepedaId){
     Sepeda sepeda = this.getSepedaById(sepedaId, sepedas);
     this.sepedas.remove(sepeda);

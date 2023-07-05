@@ -57,7 +57,7 @@ class Main{
   }
 
   public static int pilihMenu(){
-		System.out.print("pilih menu : ");
+		System.out.print("Pilih Menu : ");
 		int pilihan = scan.nextInt();
 		scan.nextLine();
 		return pilihan;
@@ -90,29 +90,36 @@ class Main{
   }
 
   public static void pinjamSepeda(){
-    System.out.print("Id penyewa : ");
+    System.out.print("Id Penyewa : ");
     String penyewaId = scan.next();
 
-    System.out.print("Id sepeda : ");
+    System.out.print("Id Sepeda : ");
     String sepedaId = scan.next();
     
     rental.bawaSepeda(penyewaId, sepedaId);
   }
 
   public static void kembalikanSepeda(){
-    System.out.print("id penyewa : ");
+    System.out.print("Id Penyewa : ");
     String penyewaId = scan.next();
 
-    System.out.print("id sepeda : ");
+    System.out.print("Id Sepeda : ");
     String sepedaId = scan.next();
 
     rental.terimaSepeda(penyewaId, sepedaId);
   }
 
-  public static void hapusPenyewa(){
-    System.out.println("Id penyewa yang ingin dihapus: ");
-    int id = scan.nextInt();
+  public static void hapusPenyewa() {
+        System.out.print("Id Penyewa : ");
+        String id = scan.nextLine();
 
-    rental.penyewas.remove(id-1);
-  }
+        Penyewa penyewa = rental.getPenyewaById(id);
+
+        if (penyewa != null) {
+            rental.penyewas.remove(penyewa);
+            System.out.println("Penyewa dengan ID " + id + " berhasil dihapus");
+        } else {
+            System.out.println("Penyewa dengan ID " + id + " tidak ditemukan");
+        }
+    }
 }

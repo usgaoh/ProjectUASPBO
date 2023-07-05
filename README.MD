@@ -18,3 +18,5 @@ showMenu(menu yang isinya)
 6. polymorphism (pada Rental)
 7. abstraction (pada Penyewa)
 8. arraylist (terdapat 3 arraylist, pada Rental 2 dan Penyewa 1)
+9. tambahan, method total ada 10
+10. tambahan, parameter ada 5 (penyewa pada tambahPenyewa, penyewaId&SepedaId pada bawaSepeda, penyewaId&SepedaId pada terimaSepeda) 
