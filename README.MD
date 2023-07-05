@@ -10,7 +10,7 @@ showMenu(menu yang isinya)
 6. HapusPenyewa
 
 ## Materi
-1. class&object (kelas ada 4 yaitu kelas Main, Rental, Penyewa, Sepeda. object total 5 object)
+1. class&object
 2. constructor (terdapat 1 yaitu pada kelas Sepeda)
 3. access modifier (2 public dan private)
 4. encapsulation (pada Sepeda)
@@ -18,5 +18,3 @@ showMenu(menu yang isinya)
 6. polymorphism (pada Rental)
 7. abstraction (pada Penyewa)
 8. arraylist (terdapat 3 arraylist, pada Rental 2 dan Penyewa 1)
-9. tambahan, method total ada 10
-10. tambahan, parameter ada 5 (penyewa pada tambahPenyewa, penyewaId&SepedaId pada bawaSepeda, penyewaId&SepedaId pada terimaSepeda) 
