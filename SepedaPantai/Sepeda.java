@@ -15,10 +15,13 @@ class Sepeda{
     public String getNama(){
         return nama;
     }
+    // Revisi penambahan Overloading pada method Sepeda
+    // Karena seperti yang saya baca - baca bahwa parameter yang berbeda namun satu method dapat dikatakan Overloading
     public Sepeda(){
         this.id = null;
         this.nama = null;
     }
+    // Revisi penambahan setter pada kelas Main, pada method initRental diinisiasi
     public void setId(String id){
         this.id = id;
     }
