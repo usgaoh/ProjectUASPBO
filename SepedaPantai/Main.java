@@ -50,10 +50,18 @@ class Main{
     Sepeda sepeda1= new Sepeda("1", ". Sepeda Keranjang");
     Sepeda sepeda2= new Sepeda("2", ". Sepeda Lipat");
     Sepeda sepeda3= new Sepeda("3", ". Sepeda Listrik");
-    
+    Sepeda sepeda4= new Sepeda(); 
+    Sepeda sepeda5= new Sepeda();
+    sepeda4.setId("4. ");
+    sepeda4.setNama("Sepeda Fixie");
+    sepeda5.setId("5. ");
+    sepeda5.setNama("Sepeda BMX");
+
     rental.sepedas.add(sepeda1);
     rental.sepedas.add(sepeda2);
     rental.sepedas.add(sepeda3);
+    rental.sepedas.add(sepeda4);
+    rental.sepedas.add(sepeda5);
   }
 
   public static int pilihMenu(){

@@ -34,7 +34,7 @@ public ArrayList<Penyewa> penyewas = new ArrayList<Penyewa>();
     }
     return isExist;
   }
-  
+
   public void bawaSepeda(String penyewaId, String sepedaId){
     Sepeda sepeda = this.getSepedaById(sepedaId, sepedas);
     this.sepedas.remove(sepeda);
